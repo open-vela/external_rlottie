@@ -1,13 +1,17 @@
 #include <gtest/gtest.h>
 #include "rlottie_capi.h"
 
+#ifndef DEMO_DIR
+#define DEMO_DIR "rlottie_resource"
+#endif
+
 class AnimationCApiTest : public ::testing::Test {
 public:
     void SetUp()
     {
         animationInvalid = lottie_animation_from_file("wrong_file.json");
         std::string filePath = DEMO_DIR;
-        filePath +="mask.json";
+        filePath +="/mask.json";
         animation = lottie_animation_from_file(filePath.c_str());
 
     }
